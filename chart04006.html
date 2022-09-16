@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<style>
+    .button {
+      background-color: #000000;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    
+    .button2 {background-color: #000000;}
+    .button3 {background-color: #000000;}
+    .button4 {background-color: #000000;}
+</style>
+
+<body>
+<Table>
+<Tr>
+    <Td><center><button class="button">ปตท.</button></center></Td>
+    <td><center><button class="button button2">บางจาก</button></center></td>
+    
+</Tr>
+
+<Tr>
+    <Td><canvas id="myChart" style="width:200%;max-width:600px"></canvas></Td>
+    <td><canvas id="myChart2" style="width:200%;max-width:600px"></canvas></td>
+    
+</Tr>
+</table>
+
+<Table>
+  <Tr>
+      <Td><center><button class="button button3">เชลล์<br></button></center></Td>
+      <td><center><button class="button button4">เอสโซ่<br></button></center></td>
+  </Tr>
+  
+  <Tr>
+      <Td><canvas id="myChart3" style="width:200%;max-width:600px"></canvas></Td>
+      <td><canvas id="myChart4" style="width:200%;max-width:600px"></canvas></td>
+  </Tr>
+  </table>
+
+<script>
+var barColors = [
+  "#FAD72B",
+  "#FFB22E",
+  "#E68420",
+  "#B10E73",
+  "#590160"
+];
+var xValues = ['แก๊สโซฮอล์ 95', 'แก๊สโซฮอล์ 91', 'แก๊สโซฮอล์ E20', 'ดีเซล B7', 'ดีเซล B7'];
+var yValues = [36.55, 36.55, 37.05, 36.55, 36.55];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "ราคาน้ำมันล่าสุดพฤหัส 18 ส.ค.65"
+    }
+  }
+});
+
+var xValues = ['แก๊สโซฮอล์ 95', 'แก๊สโซฮอล์ 91', 'แก๊สโซฮอล์ E20', 'ดีเซล B7', 'ดีเซล B7'];
+var yValues = [36.28	, 36.28	, 36.78	, 36.28	, 36.28	];
+new Chart("myChart2", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "ราคาน้ำมันล่าสุดพฤหัส 18 ส.ค.65"
+    }
+  }
+});
+
+var xValues3 = ['แก๊สโซฮอล์ 95', 'แก๊สโซฮอล์ 91', 'แก๊สโซฮอล์ E20', 'ดีเซล B7', 'ดีเซล B7'];
+var yValues3 = [35.44, 35.44, 35.94, 35.44, 35.44];
+new Chart("myChart3", {
+  type: "bar",
+  data: {
+    labels: xValues3,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues3
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "ราคาน้ำมันล่าสุดพฤหัส 18 ส.ค.65"
+    }
+  }
+});
+
+var xValues4 = ['แก๊สโซฮอล์ 95', 'แก๊สโซฮอล์ 91', 'แก๊สโซฮอล์ E20', 'ดีเซล B7', 'ดีเซล B7'];
+var yValues4 = [34.94, 34.94, 34.94, 34.94, 34.94];
+new Chart("myChart4", {
+  type: "bar",
+  data: {
+    labels: xValues4,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues4
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "ราคาน้ำมันล่าสุดพฤหัส 18 ส.ค.65"
+    }
+  }
+});
+
+
+// JS 
+</script>
+
+</body>
+</html>

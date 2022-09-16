@@ -1,0 +1,173 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=radar-custom
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  color: ['#67F9D8', '#FFE434', '#56A3F1', '#FF917C'],
+  title: {
+    text: 'ราคาน้ำมันล่าสุดพฤหัส 18 ส.ค.65 '
+  },
+  legend: {},
+  radar: [
+    {
+      indicator: [
+        { text: 'ปตท.'},
+        { text: 'บางจาก' },
+        { text: 'เชลล์'},
+        { text: 'เอสโซ่' },
+        { text: 'คาลเท็กซ์' },
+        { text: 'พีที' }
+      ],
+      center: ['25%', '50%'],
+      radius: 120,
+      startAngle: 90,
+      splitNumber: 4,
+      shape: 'circle',
+      axisName: {
+        formatter: '【{value}】',
+        color: '#428BD4'
+      },
+      splitArea: {
+        areaStyle: {
+          color: ['#77EADF', '#26C3BE', '#64AFE9', '#428BD4'],
+          shadowColor: 'rgba(0, 0, 0, 0.2)',
+          shadowBlur: 10
+        }
+      },
+      axisLine: {
+        lineStyle: {
+          color: 'rgba(211, 253, 250, 0.8)'
+        }
+      },
+      splitLine: {
+        lineStyle: {
+          color: 'rgba(211, 253, 250, 0.8)'
+        }
+      }
+    },
+    {
+      indicator: [
+        { text: 'ปตท.', max: 150 },
+        { text: 'บางจาก', max: 150 },
+        { text: 'เชลล์', max: 150 },
+        { text: 'เอสโซ่', max: 120 },
+        { text: 'คาลเท็กซ์', max: 108 },
+        { text: 'พีที', max: 72 }
+      ],
+      center: ['75%', '50%'],
+      radius: 120,
+      axisName: {
+        color: '#fff',
+        backgroundColor: '#666',
+        borderRadius: 3,
+        padding: [3, 5]
+      }
+    }
+  ],
+  series: [
+    {
+      type: 'radar',
+      emphasis: {
+        lineStyle: {
+          width: 4
+        }
+      },
+      data: [
+        {
+          value: [36.55,36.55,37.05, 36.55, 36.55, 36.55],
+          name: 'แก๊สโซฮอล์ 95'
+        },
+        {
+          value: [36.28,36.28,36.78, 36.28, 36.28, 36.28],
+          name: 'แก๊สโซฮอล์ 91',
+          areaStyle: {
+            color: "rgba(205, 100, 52, 0.6)"
+          }
+        }
+      ]
+    },
+    {
+      type: 'radar',
+      radarIndex: 1,
+      data: [
+        {
+          value: [35.44,35.44,35.94, 35.44, 35.44, 35.44],
+          name: 'แก๊สโซฮอล์ E20',
+          symbol: 'rect',
+          symbolSize: 12,
+          lineStyle: {
+            type: 'dashed'
+          },
+          label: {
+            show: true,
+            formatter: function (params) {
+              return params.value;
+            }
+          }
+        },
+        {
+          value: [34.94,34.94,34.94, 34.94, 34.94, 34.94],
+          name: 'ดีเซล B7',
+          areaStyle: {
+            color: new echarts.graphic.RadialGradient(0.1, 0.6, 1, [
+              {
+                color: 'rgba(275, 145, 124, 0.1)',
+                offset: 0
+              },
+              {
+                color: 'rgba(255, 145, 124, 0.9)',
+                offset: 1
+              }
+            ])
+          }
+        }
+      ]
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

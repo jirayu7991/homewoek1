@@ -1,0 +1,104 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getting Started with Chart JS with www.chartjs3.com</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(255, 26, 104, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartCard {
+        width: 100vw;
+        height: calc(100vh - 40px);
+        background: rgba(255, 26, 104, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 700px;
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px rgba(255, 26, 104, 1);
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chartMenu">
+      <p>WWW.CHARTJS3.COM (Chart JS 3.8.2)</p>
+    </div>
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    // setup 
+    const data = {
+      labels: ['ปตท.', 'บางจาก', 'เชลล์', 'เอสโซ่', 'คาลเท็กซ์'],
+      datasets: [{
+        label: 'แก๊สโซฮอล์ 95',
+        data: [36.55, 36.55, 37.05, 36.55, 36.55 ],
+        backgroundColor: '#b91d47',
+        borderColor: 'rgba(54, 162, 235, 1)',          
+      },{
+        label: 'แก๊สโซฮอล์ 91',
+        data: [36.28, 36.28, 36.78, 36.28, 36.28],
+        backgroundColor: 'rgba(54, 162, 235, 1)',        
+        borderColor: 'rgba(75, 192, 192, 1)',
+      },{
+        label: 'แก๊สโซฮอล์ E20',
+        data: [35.44, 35.44,35.94, 35.44,35.44],
+        backgroundColor: '#c45850',
+        borderColor: 'rgba(75, 192, 192, 1)',
+      },{
+        label: 'ดีเซล B7',
+        data: [34.94, 34.94, 34.94, 34.94, 34.94],
+        backgroundColor: '#ffa500',
+        borderColor: 'rgba(75, 192, 192, 1)',
+      },{
+        label: 'ดีเซล',
+        data: [34.94, 34.94, 34.94, 34.94, 34.94],
+        backgroundColor: '#2b5797',
+        borderColor: 'rgba(75, 192, 192, 1)',
+      }]
+    };
+
+    // config 
+    const config = {
+      type: 'bar',
+      data,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+    </script>
+
+  </body>
+</html>
